@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una cartita mas para mi amado...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e6d5f7, #f5e1e6);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        .notas-container {
+            background: #fff;
+            width: 400px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: center;
+            border: 3px solid #ffccd5;
+            border-image: linear-gradient(45deg, #ffccd5, #ff6f91) 1;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .notas-container::before, .notas-container::after,
+        .notas-container .decor1, .notas-container .decor2 {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="pink" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+
+        .notas-container::before {
+            top: 10px;
+            left: 10px;
+            transform: rotate(-25deg);
+        }
+
+        .notas-container::after {
+            bottom: 10px;
+            right: 10px;
+            transform: rotate(25deg);
+        }
+
+        .notas-container .decor1 {
+            top: 15px;
+            right: 15px;
+            transform: rotate(15deg);
+            opacity: 0.7;
+        }
+
+        .notas-container .decor2 {
+            bottom: 15px;
+            left: 15px;
+            transform: rotate(-15deg);
+            opacity: 0.7;
+        }
+
+        h1 {
+            color: #ff6f91;
+            font-size: 28px;
+            font-family: 'Georgia', serif;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .notas {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #ffccd5;
+        }
+
+        .notas ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .notas li {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .notas li::before {
+            content: '♥';
+            color: #ff6f91;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .adorno {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .adorno span {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ffccd5;
+            border-radius: 50%;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .adorno span:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .adorno span:nth-child(2) { top: 20%; right: 10%; animation-delay: 0.5s; }
+        .adorno span:nth-child(3) { bottom: 15%; left: 15%; animation-delay: 1s; }
+        .adorno span:nth-child(4) { top: 30%; left: 25%; animation-delay: 1.5s; }
+        .adorno span:nth-child(5) { bottom: 25%; right: 20%; animation-delay: 2s; }
+        .adorno span:nth-child(6) { top: 50%; left: 10%; animation-delay: 2.5s; }
+        .adorno span:nth-child(7) { bottom: 10%; right: 5%; animation-delay: 3s; }
+        .adorno span:nth-child(8) { top: 40%; right: 15%; animation-delay: 3.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-25px) scale(1.2); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .boton {
+            background: #ff6f91;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .boton:hover {
+            background: #ff4d73;
+        }
+    </style>
+</head>
+<body>
+    <div class="notas-container">
+        <div class="adorno">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="decor1"></div>
+        <div class="decor2"></div>
+        <h1>Notitas, sueños, frases, y etc, xd ;3</h1>
+        <div class="notas">
+            <ul>
+                <li>gracias por aparecer en mi vida, te amo mi niño, muack, abasho, te amo mucho mi vida :3</li>
+                <li>Una vez me soñe que estaba en un parque comiendo un heladito y pos de lejos caminaba alguien hacia mi, tenia unos globos y un peluche, estaba medio borroso, pero luego te vi, despues corri y te abraze, y despues lloraba de felicidad porque porfin te veia y te abrazaba y pos solo mi alarma y me desperte ;3</li>
+                <li>Si pudiera hablar sobre todo lo que siento por ti, no pararia de hablar porque eres el amor de mi vida, gracias por amarme mi niño, te amo.</li>
+                <li>Cuando estes triste recuerda que habian dias en los que te reias de mi porque...no pos no sabia aveces de el porque pero te reias porque aveces no entendia algunas cosas :,v</li>
+                <li>Adoro cómo me haces sentir tan especial, tan amada, te amo, muack.</li>
+                <li>Otro dia soñe que estabamos en una tipo llamada y pos jugabamos y hablabamos como antes y lit lo senti muy real porque cuando me levante pense que seguia en el sueño pero tristemente solo fue un sueño y se me quedo un vacio pensando en si estabas bien y asi ;3</li>
+                <li>gracias por aparecer en mi vida, eres y siempre seras mi primer, unico y ultimo amor verdadero unico y cincero, te amo mucho mi niño.</li>
+                <li>Eres mi aventura favorita en este mundo, muack, te amo mucho mi vida :3.</li>
+                <li>Tu amor es mi fuerza y mi inspiración para poder seguis adelante en este camino llamado vida, quiero amarte con todas mis fuerzas y hacerte el niño mas feliz del mundo, te amo.</li>
+                <li>Prometo amarte hoy y siempre.</li>
+                <li>ultimamente me he viciado a una tipo serie que se llama alien stage y mis favoritas hasta el momento son el round final y el round 6....we no, till no se merecia morir pipipi y ivan se sacrifico por till...pipipi ;3</li>
+                <li>todos los dias cuando hago cualquier cosa me acuerdo de ti, casi siempre me pregunto si desayunaste arepas con queso rallado como me decias, o que almerzas o cenas, te extraño y me haces mucha falta mi querido niño presioso :,(</li>
+                <li>mi sueño mas reciente fue que estabamos en la lluvia paseando como alguna vez dijimos...no podia ver tu cara pero eso no quitaba que me la estaba pasando muy bien a tu lado y despues nos comprabamos helado en pleno frio xd, y luego nos fuimos a sentar en un parque cercano, dejo de llover y salia el sol, los dos nos pusimos a simplemente hablar de cualquier cosa mientras reiamos y me senti muy feliz, al final te abrace y el sueño se termino porque me levantaron para ir a mi clase de informatica ;3</li>
+                <li>te amo mas de lo que puedas imaginar, te extraño mucho mi vida, espero y pronto volvamos a hablar como antes ;3</li>
+                <li>prometo jugar contigo 24/7 y jugar a lo que tu quiras mi vuda, muack</li>
+                <li>prometo con todo mi corazon y alma no dejarte y amarte por SIEMPRE, te amo mucho mi vida</li>
+            </ul>
+        </div>
+        <a href="formxd.html" class="boton">Volver a la Carta</a>
+    </div>
+</body>
+</html>
